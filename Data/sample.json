@@ -1,0 +1,65 @@
+{
+    "title": "Test Project",
+    "author": "skikozou",
+    "body": [
+      {
+        "moduleName": "func",
+        "args": {
+          "name": "func1",
+          "body": [
+            {
+              "moduleName": "say",
+              "args": {
+                "text": "ゆうしゃ　は　後ろからおそわれて死んでしまった！"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "moduleName": "say",
+        "args": {
+          "text": "サンプル用プロジェクト"
+        }
+      },
+      {
+        "moduleName": "say",
+        "args": {
+          "text": "やせいのくま　が　あらわれた！"
+        }
+      },
+      {
+        "moduleName": "say",
+        "args": {
+          "text": "戦う？"
+        }
+      },
+      {
+        "moduleName": "if",
+        "args": {
+          "yes": [
+            {
+                "moduleName": "say",
+                "args": {
+                  "text": "ゆうしゃ　は　ゆうかんに戦った！"
+                }
+              },
+            {
+              "moduleName": "say",
+              "args": {
+                "text": "しかし、やせいのくま　に　いちげきで殺されてしまった！"
+              }
+            }
+          ],
+          "no": [
+            {
+                "moduleName": "call",
+                "args": {
+                  "name": "func1"
+                }
+              }
+          ]
+        }
+      }
+    ]
+  }
