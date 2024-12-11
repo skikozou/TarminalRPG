@@ -1,6 +1,6 @@
 {
-    "title": "Test Project",
-    "author": "skikozou",
+    "title": "タイトルなし",
+    "author": "作者なし",
     "body": [
       {
         "moduleName": "func",
@@ -10,7 +10,9 @@
             {
               "moduleName": "say",
               "args": {
-                "text": "ゆうしゃ　は　後ろからおそわれて死んでしまった！"
+                "text": [
+                  "ゆうしゃ　は後ろからおそわれて死んでしまった！"
+                ]
               }
             }
           ]
@@ -19,19 +21,19 @@
       {
         "moduleName": "say",
         "args": {
-          "text": "サンプル用プロジェクト"
+          "text": [
+            "配列テキスト",
+            "test",
+            "やせいのくま　があらわれた！"
+          ]
         }
       },
       {
         "moduleName": "say",
         "args": {
-          "text": "やせいのくま　が　あらわれた！"
-        }
-      },
-      {
-        "moduleName": "say",
-        "args": {
-          "text": "戦う？"
+          "text": [
+            "戦う？"
+          ]
         }
       },
       {
@@ -41,13 +43,17 @@
             {
                 "moduleName": "say",
                 "args": {
-                  "text": "ゆうしゃ　は　ゆうかんに戦った！"
+                  "text": [
+                    "ゆうしゃ　はゆうかんに戦った！"
+                  ]
                 }
               },
             {
               "moduleName": "say",
               "args": {
-                "text": "しかし、やせいのくま　に　いちげきで殺されてしまった！"
+                "text": [
+                  "しかし、やせいのくま　にいちげきで殺されてしまった！"
+                ]
               }
             }
           ],

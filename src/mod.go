@@ -27,7 +27,7 @@ type Module struct {
 }
 
 type SayArgs struct {
-	Text string `json:"text"`
+	Text []string `json:"text"`
 }
 
 type IfArgs struct {

@@ -7,7 +7,7 @@ import (
 )
 
 func Runner(project *Project) {
-	fmt.Println(project.Title, "\n", project.Author, "\n\n")
+	fmt.Println(project.Title, "\n", project.Author, "\n")
 
 	ModuleRunner(project.Body)
 }
@@ -38,27 +38,29 @@ func ModuleRunner(project []Module) {
 }
 
 func SayFunc(args SayArgs) {
-	fmt.Print(args.Text, "\n\n")
-
 	tty, err := tty.Open()
 	if err != nil {
 		fmt.Println("Error reading input:", err)
 		return
 	}
 
-waitRoop:
-	for {
-		r, err := tty.ReadRune()
-		if err != nil {
-			fmt.Println("Error reading input:", err)
-			return
-		}
+	for _, text := range args.Text {
+		fmt.Print(text, "\n\n")
 
-		switch r {
-		case '\r':
-			break waitRoop
-		case ' ':
-			break waitRoop
+	waitRoop:
+		for {
+			r, err := tty.ReadRune()
+			if err != nil {
+				fmt.Println("Error reading input:", err)
+				return
+			}
+
+			switch r {
+			case '\r':
+				break waitRoop
+			case ' ':
+				break waitRoop
+			}
 		}
 	}
 
