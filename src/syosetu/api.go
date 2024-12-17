@@ -138,10 +138,36 @@ func extractSyosetuList(res *http.Response) (SyosetuList, error) {
 	return list, nil
 }
 
-func NoveltoObject(list SyosetuList) TarminalRPG.Project {
-	return TarminalRPG.Project{}
-}
+func NoveltoProject(ncode string) (*TarminalRPG.Project, error) {
+	list, err := GetSyosetuList(ncode)
+	if err != nil {
+		return &TarminalRPG.Project{}, err
+	}
 
-func NoveltoJson(list SyosetuList) string {
-	return ""
+	res, err := GetNovelAPI(ncode)
+	if err != nil {
+		return &TarminalRPG.Project{}, err
+	}
+
+	var project TarminalRPG.Project
+	project.Title = res[1].Title
+	project.Author = res[1].Writer
+
+	for _, story := range list {
+		docs, err := GetSyosetu(ncode, story.page)
+		if err != nil {
+			return &TarminalRPG.Project{}, err
+		}
+
+		var module TarminalRPG.Module
+		var texts []string
+
+		texts = append(texts, story.title)
+		texts = append(texts, docs...)
+		module.ModuleName = "say"
+		module.Args = TarminalRPG.SayArgs{Text: texts}
+		project.Body = append(project.Body, module)
+	}
+
+	return &project, nil
 }
