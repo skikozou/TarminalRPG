@@ -22,6 +22,10 @@ func ModuleLexer(base []Module, Modules []Module) []Module {
 		case "say":
 			var args SayArgs
 			JsonToObject(module.Args, &args)
+			if HasBrank(&args) {
+				//set break flag
+				//HasBrank setting
+			}
 			base[i].Args = args
 			base[i].ModuleName = module.ModuleName
 		case "if":
@@ -56,4 +60,21 @@ func ModuleLexer(base []Module, Modules []Module) []Module {
 func JsonToObject(Json interface{}, ObjectType any) {
 	jsonBytes, _ := json.Marshal(Json)
 	json.Unmarshal(jsonBytes, &ObjectType)
+}
+
+func HasBrank(Json interface{}) bool {
+	switch Json.(type) {
+	case *SayArgs:
+		for _, t := range Json.(SayArgs).Text {
+			if t == "" {
+				return true
+			}
+		}
+	case *IfArgs:
+
+	case *FuncArgs:
+
+	case *CallArgs:
+
+	}
 }

@@ -13,7 +13,7 @@ func main() {
 		return
 	}
 
-	//TarminalRPG.Runner(novel)
+	TarminalRPG.Runner(novel)
 
-	TarminalRPG.SaveData(novel, "Data/tensura.json")
+	//TarminalRPG.SaveData(novel, "Data/tensura.json")
 }
