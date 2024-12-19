@@ -1,8 +1,8 @@
 package main
 
 import (
-	TarminalRPG "TarminalRPG/src"
-	"TarminalRPG/src/syosetu"
+	TerminalRPG "TerminalRPG/src"
+	"TerminalRPG/src/syosetu"
 	"fmt"
 )
 
@@ -13,7 +13,7 @@ func main() {
 		return
 	}
 
-	TarminalRPG.Runner(novel)
+	TerminalRPG.Runner(novel)
 
-	//TarminalRPG.SaveData(novel, "Data/tensura.json")
+	//TerminalRPG.SaveData(novel, "Data/tensura.json")
 }
