@@ -1,4 +1,4 @@
-# TarminalRPG(仮)
+# TerminalRPG(仮)
 ## about
 コンソールでできるRPG的ななにか<br><br>
 小説をコンソールで読みたいなって思って、<br>
