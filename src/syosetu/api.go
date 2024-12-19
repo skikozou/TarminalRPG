@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	TarminalRPG "TarminalRPG/src"
+	TerminalRPG "TerminalRPG/src"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -138,34 +138,34 @@ func extractSyosetuList(res *http.Response) (SyosetuList, error) {
 	return list, nil
 }
 
-func NoveltoProject(ncode string) (*TarminalRPG.Project, error) {
+func NoveltoProject(ncode string) (*TerminalRPG.Project, error) {
 	list, err := GetSyosetuList(ncode)
 	if err != nil {
-		return &TarminalRPG.Project{}, err
+		return &TerminalRPG.Project{}, err
 	}
 
 	res, err := GetNovelAPI(ncode)
 	if err != nil {
-		return &TarminalRPG.Project{}, err
+		return &TerminalRPG.Project{}, err
 	}
 
-	var project TarminalRPG.Project
+	var project TerminalRPG.Project
 	project.Title = res[1].Title
 	project.Author = res[1].Writer
 
 	for _, story := range list {
 		docs, err := GetSyosetu(ncode, story.page)
 		if err != nil {
-			return &TarminalRPG.Project{}, err
+			return &TerminalRPG.Project{}, err
 		}
 
-		var module TarminalRPG.Module
+		var module TerminalRPG.Module
 		var texts []string
 
 		texts = append(texts, story.title)
 		texts = append(texts, docs...)
 		module.ModuleName = "say"
-		module.Args = TarminalRPG.SayArgs{Text: texts}
+		module.Args = TerminalRPG.SayArgs{Text: texts}
 		project.Body = append(project.Body, module)
 	}
 
