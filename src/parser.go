@@ -1,4 +1,4 @@
-package TarminalRPG
+package TerminalRPG
 
 import (
 	"encoding/json"
