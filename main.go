@@ -13,7 +13,7 @@ func main() {
 		return
 	}
 
-	TerminalRPG.Runner(novel)
+	TerminalRPG.Play(novel)
 
 	//TerminalRPG.SaveData(novel, "Data/tensura.json")
 }

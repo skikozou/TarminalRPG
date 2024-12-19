@@ -6,7 +6,7 @@ import (
 	"github.com/mattn/go-tty"
 )
 
-func Runner(project *Project) {
+func Play(project *Project) {
 	fmt.Println(project.Title, "\n", project.Author, "\n")
 
 	ModuleRunner(project.Body)
