@@ -1,4 +1,4 @@
-module TarminalRPG
+module TerminalRPG
 
 go 1.23.0
 
